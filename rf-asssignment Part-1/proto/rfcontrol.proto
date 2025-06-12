@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package rfcontrol;
+
+message RFConfig {
+  double frequency = 1;
+  double gain = 2;
+  string device_id = 3;
+}
+
+message RFResponse {
+  bool success = 1;
+  string status = 2;
+}
+
+service RFService {
+  rpc SetRFSettings(RFConfig) returns (RFResponse);
+}
